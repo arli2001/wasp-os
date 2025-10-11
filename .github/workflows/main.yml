@@ -44,11 +44,11 @@ jobs:
           export PATH=$PATH:${{ runner.temp }}/arm-none-eabi/bin
           make -j `nproc` submodules
 
-    - name: Download softdevice
-      id:   download-softdevice
-      run:  |
-          export PATH=$PATH:${{ runner.temp }}/arm-none-eabi/bin
-          make -j `nproc` softdevice
+    #- name: Download softdevice
+    #  id:   download-softdevice
+    #  run:  |
+    #      export PATH=$PATH:${{ runner.temp }}/arm-none-eabi/bin
+    #      make -j `nproc` softdevice
 
     - name: Build wasp-os binary distribution
       id:   binary-distribution
