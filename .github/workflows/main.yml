@@ -50,11 +50,6 @@ jobs:
           export PATH=$PATH:${{ runner.temp }}/arm-none-eabi/bin
           make -j `nproc` softdevice
 
-    - name: Download BLE stack
-      id:   download-ble
-      run:  |
-          bash download_ble_stack.sh
-
     - name: Build wasp-os binary distribution
       id:   binary-distribution
       run:  |
