@@ -45,7 +45,7 @@ bootloader: build-$(BOARD_SAFE)
 	$(PYTHON) tools/hexmerge.py \
 		bootloader/_build-$(BOARD)_nrf52832/$(BOARD)_nrf52832_bootloader-*-nosd.hex \
 		bootloader/lib/softdevice/s132_nrf52_6.1.1/s132_nrf52_6.1.1_softdevice.hex \
-		-o build-$(BOARD)/bootloader.hexdirectory
+		-o build-$(BOARD)/bootloader.hex
 	$(PYTHON) tools/hex2c.py build-$(BOARD)/bootloader.hex > \
 		reloader/src/boards/$(BOARD)/bootloader.h
 	$(PYTHON) -m nordicsemi dfu genpkg \
