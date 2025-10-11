@@ -58,7 +58,7 @@ reloader: bootloader build-$(BOARD_SAFE)
 	cp reloader/build-$(BOARD)/reloader*.zip build-$(BOARD)
 
 softdevice:
-	micropython/ports/nrf/drivers/bluetooth/download_ble_stack.sh
+	download_ble_stack.sh
 
 wasp/boards/$(BOARD_SAFE)/watch.py : wasp/boards/$(BOARD_SAFE)/watch.py.in
 	(cd wasp; ../tools/preprocess.py boards/$(BOARD)/watch.py.in > boards/$(BOARD)/watch.py) \
