@@ -45,7 +45,7 @@ bootloader: build-$(BOARD_SAFE)
 	$(PYTHON) tools/hexmerge.py \
 		bootloader/_build-$(BOARD)_nrf52832/$(BOARD)_nrf52832_bootloader-*-nosd.hex \
 		bootloader/lib/softdevice/s132_nrf52_6.1.1/s132_nrf52_6.1.1_softdevice.hex \
-		-o build-$(BOARD)/bootloader.hex
+		-o build-$(BOARD)/bootloader.hexdirectory
 	$(PYTHON) tools/hex2c.py build-$(BOARD)/bootloader.hex > \
 		reloader/src/boards/$(BOARD)/bootloader.h
 	$(PYTHON) -m nordicsemi dfu genpkg \
@@ -58,7 +58,7 @@ reloader: bootloader build-$(BOARD_SAFE)
 	cp reloader/build-$(BOARD)/reloader*.zip build-$(BOARD)
 
 softdevice:
-	download_ble_stack.sh
+	bash download_ble_stack.sh
 
 wasp/boards/$(BOARD_SAFE)/watch.py : wasp/boards/$(BOARD_SAFE)/watch.py.in
 	(cd wasp; ../tools/preprocess.py boards/$(BOARD)/watch.py.in > boards/$(BOARD)/watch.py) \
