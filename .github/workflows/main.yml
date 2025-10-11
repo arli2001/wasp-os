@@ -57,7 +57,7 @@ jobs:
     - name: Download BLE stack
       id:   download-ble
       run:  |
-          bash micropython/ports/nrf/drivers/bluetooth/download_ble_stack.sh
+          bash download_ble_stack.sh
 
     - name: Build wasp-os binary distribution
       id:   binary-distribution
